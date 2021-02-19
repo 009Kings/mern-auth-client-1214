@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 const Signup = (props) => {
   const [name, setName] = useState('');
@@ -9,7 +10,16 @@ const Signup = (props) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    console.log(`Sending up new user data`, {name, email, password})
+    axios.post(
+      `${process.env.REACT_APP_SERVER_URL}/api/signup`,
+      { name, email, password }
+    ).then(response => {
+      console.log(response.data);
+      // save the token in local storage
+      localStorage.setItem('jwtToken', response.data.token);
+      // set the token to auth header
+      // set user data
+    }).catch(err => console.log(`⛔️ Rutro:\n`, err));
   }
 
   return (
