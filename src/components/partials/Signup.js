@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import setAuthToken from '../../utils/setAuthToken';
 
 const Signup = (props) => {
   const [name, setName] = useState('');
@@ -18,7 +19,9 @@ const Signup = (props) => {
       // save the token in local storage
       localStorage.setItem('jwtToken', response.data.token);
       // set the token to auth header
+      setAuthToken(response.data.token);
       // set user data
+      
     }).catch(err => console.log(`⛔️ Rutro:\n`, err));
   }
 
