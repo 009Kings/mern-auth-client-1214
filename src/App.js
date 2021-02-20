@@ -24,7 +24,10 @@ function App() {
   return (
     <div className="App">
       {/* TODO Remove div, add styling more intentionally */}
-      <Header currentUser={currentUser} />
+      <Header 
+        currentUser={currentUser} 
+        handleAuth={handleAuth} 
+      />
       <Content 
         currentUser={currentUser}
         isAuthenticated={isAuthenticated}
