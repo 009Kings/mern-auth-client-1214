@@ -12,6 +12,7 @@ const Header = (props) => {
     <nav>
       <Link className="nav-link" to='/'>Home</Link>{'  |  '}
       <Link className="nav-link" to='/profile'>Account</Link>{'  |  '}
+      <Link className="nav-link" to='/bounties'>Bounty Board</Link>{'  |  '}
       <span className="nav-link" onClick={e => props.handleAuth(null)}>Logout</span>
     </nav> :
     <nav>

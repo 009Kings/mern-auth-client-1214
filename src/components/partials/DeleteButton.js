@@ -1,0 +1,20 @@
+import axios from 'axios';
+
+export default function DeleteButton(props) {
+  const handleDelete = e => {
+    e.preventDefault()
+    axios.delete(`${process.env.REACT_APP_SERVER_URL}/bounties/${props.id}`)
+      .then(response => {
+          console.log(response.data)
+          // call refresh with true
+          props.setBountyNum(0)
+      })
+      .catch(err => props.setError(err.message))
+  }
+
+  return (
+    <form className="delete-bounty-button" onSubmit={handleDelete}>
+      <input type="submit" value="Remove this Bounty" />
+    </form>
+  )
+}

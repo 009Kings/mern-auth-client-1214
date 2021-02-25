@@ -2,6 +2,8 @@ import { Route, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
 import Profile from './pages/Profile';
+import Bounties from './pages/Bounties';
+import NewBounty from './pages/NewBounty';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem('jwtToken');
@@ -24,6 +26,14 @@ const Content = (props) => {
         component={Profile} 
         currentUser={props.currentUser} 
         handleAuth={props.handleAuth} 
+      />
+      <PrivateRoute 
+        exact path='/bounties/add'
+        component={NewBounty}
+      />
+      <PrivateRoute 
+        path='/bounties'
+        component={Bounties}
       />
     </main>
   );
