@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   let style = {
-    backgroundColor: 'chartreuse',
+    backgroundColor: 'hotpink',
     borderBottom: '3px solid black',
     margin: 0,
     padding: '1em 0'
